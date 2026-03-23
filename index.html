@@ -3,216 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JY Martineau — Fractional CTO</title>
-<meta name="description" content="Fractional CTO. Fintech, blockchain, sports tech, SaaS. Tetra Trust, Transpara, SimWin Sports. Ottawa / Toronto.">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
+<title>JY Martineau</title>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #05080e; --surface: #0b0f18; --surface-2: #131929;
-  --border: #1e2a3a; --text: #e2eaf4; --text-dim: #7d8fa8; --text-muted: #4a5a72;
-  --blue: #4f8ef7; --blue-glow: #4f8ef730; --teal: #20c997; --teal-glow: #20c99725;
-  --purple: #b07ef8; --amber: #fbbf24; --green: #34d399; --orange: #fb923c;
+  --bg: #05080e; --surface: #0b0f18; --border: #1e2a3a;
+  --text: #e2eaf4; --text-dim: #7d8fa8; --text-muted: #4a5a72;
+  --blue: #4f8ef7; --blue-glow: #4f8ef730; --teal: #20c997;
 }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
-body { font-family: 'Syne', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; overflow-x: hidden; }
-a { color: var(--blue); text-decoration: none; transition: color 0.2s; }
-a:hover { color: var(--teal); }
-.container { max-width: 72rem; margin: 0 auto; padding: 0 1.5rem; }
+html, body { height: 100%; }
+body {
+  font-family: 'Syne', sans-serif;
+  background: var(--bg); color: var(--text);
+  display: flex; align-items: center; justify-content: center;
+  min-height: 100vh;
+}
 body::before {
-  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 0; opacity: 0.4;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  content: ""; position: fixed; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 800px 500px at 20% 50%, #4f8ef708 0%, transparent 65%),
+    radial-gradient(ellipse 600px 400px at 80% 30%, #20c99706 0%, transparent 65%);
+  animation: drift 20s ease-in-out infinite alternate;
 }
-.hero { position: relative; padding: 5rem 0 3.5rem; overflow: hidden; }
-.hero::before {
-  content: ""; position: absolute; top: -40%; left: -10%; width: 120%; height: 180%; pointer-events: none;
-  background: radial-gradient(ellipse 700px 400px at 15% 60%, #4f8ef710 0%, transparent 65%),
-    radial-gradient(ellipse 500px 350px at 85% 25%, #20c99708 0%, transparent 65%),
-    radial-gradient(ellipse 400px 500px at 55% 90%, #b07ef806 0%, transparent 65%);
-  animation: drift 25s ease-in-out infinite alternate;
+@keyframes drift { 0% { transform: translate(0,0); } 100% { transform: translate(-30px,20px); } }
+.wrap { text-align: center; padding: 2rem; position: relative; max-width: 32rem; }
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--teal); margin-bottom: 1.5rem;
+  display: flex; align-items: center; justify-content: center; gap: 0.75rem;
 }
-@keyframes drift { 0% { transform: translate(0,0); } 100% { transform: translate(-40px,25px); } }
-.hero__eyebrow {
-  font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 600;
-  letter-spacing: 0.18em; text-transform: uppercase; color: var(--teal);
-  margin-bottom: 1.25rem; position: relative; display: flex; align-items: center; gap: 0.75rem;
+.eyebrow::before, .eyebrow::after {
+  content: ""; display: inline-block; width: 2rem; height: 1px; background: var(--teal);
 }
-.hero__eyebrow::before { content: ""; display: inline-block; width: 2rem; height: 1px; background: var(--teal); }
-.hero__title { font-size: clamp(3rem, 7vw, 5.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.0; position: relative; }
-.hero__title--name { background: linear-gradient(135deg, var(--text) 0%, #8ca5c8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.hero__title--role { font-size: clamp(1.25rem, 3vw, 2rem); font-weight: 600; letter-spacing: -0.02em; color: var(--text-dim); display: block; margin-top: 0.5rem; margin-bottom: 1.75rem; }
-.hero__title--role span { background: linear-gradient(90deg, var(--blue), var(--teal)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-.hero__desc { font-size: 1rem; color: var(--text-dim); max-width: 44rem; line-height: 1.75; margin-bottom: 2.25rem; position: relative; }
-.hero__actions { display: flex; gap: 0.875rem; flex-wrap: wrap; position: relative; margin-bottom: 1rem; }
-.btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.375rem; border-radius: 0.4rem; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; border: 1px solid transparent; cursor: pointer; transition: all 0.2s; text-decoration: none; }
-.btn--primary { background: var(--blue); color: #fff; border-color: var(--blue); }
-.btn--primary:hover { background: #3a7aef; color: #fff; box-shadow: 0 0 24px var(--blue-glow); }
-.btn--teal { background: transparent; color: var(--teal); border-color: var(--teal); }
-.btn--teal:hover { background: var(--teal-glow); color: var(--teal); }
-.btn--ghost { background: transparent; color: var(--text-dim); border-color: var(--border); }
-.btn--ghost:hover { color: var(--text); border-color: var(--text-muted); background: var(--surface-2); }
-.btn svg { width: 14px; height: 14px; fill: currentColor; flex-shrink: 0; }
-.stats { display: flex; border: 1px solid var(--border); border-radius: 0.625rem; overflow: hidden; margin: 3rem 0; background: var(--surface); flex-wrap: wrap; }
-.stat { flex: 1 1 auto; min-width: 8rem; padding: 1.25rem 1.5rem; border-right: 1px solid var(--border); }
-.stat:last-child { border-right: none; }
-.stat__number { font-family: 'JetBrains Mono', monospace; font-size: 1.625rem; font-weight: 700; color: var(--text); line-height: 1; }
-.stat__label { font-family: 'JetBrains Mono', monospace; font-size: 0.625rem; font-weight: 600; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.375rem; }
-.section { padding: 3.5rem 0; border-top: 1px solid var(--border); }
-.section__label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; }
-.section__title { font-size: 1.625rem; font-weight: 800; letter-spacing: -0.025em; margin-bottom: 0.625rem; }
-.section__desc { color: var(--text-dim); max-width: 42rem; margin-bottom: 2rem; font-size: 0.9375rem; }
-.engagements { display: grid; grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr)); gap: 1rem; }
-.engagement { background: var(--surface); border: 1px solid var(--border); border-radius: 0.625rem; padding: 1.5rem; transition: all 0.2s; position: relative; overflow: hidden; }
-.engagement:hover { background: var(--surface-2); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.35); }
-.engagement__bar { position: absolute; top: 0; left: 0; right: 0; height: 2px; }
-.engagement__tag { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.25rem 0.625rem; border-radius: 2rem; border: 1px solid; display: inline-block; margin-bottom: 0.875rem; }
-.engagement__name { font-size: 1.125rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.25rem; }
-.engagement__role { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--text-muted); margin-bottom: 0.875rem; }
-.engagement__desc { font-size: 0.8125rem; color: var(--text-dim); line-height: 1.65; }
-.focus-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1.25rem; }
-.focus { padding: 1.25rem 1.5rem; border-left: 2px solid var(--border); transition: border-color 0.2s; }
-.focus:hover { border-color: var(--blue); }
-.focus__title { font-size: 0.9375rem; font-weight: 700; margin-bottom: 0.4rem; }
-.focus__text { font-size: 0.8rem; color: var(--text-dim); line-height: 1.65; }
-.tags { display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.tag { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; font-weight: 500; padding: 0.375rem 0.75rem; border: 1px solid var(--border); border-radius: 2rem; color: var(--text-dim); transition: all 0.2s; background: var(--surface); }
-.tag:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-glow); }
-.registry-link { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 0.75rem; padding: 2rem 2.5rem; transition: all 0.2s; margin: 3rem 0 0; text-decoration: none; position: relative; overflow: hidden; }
-.registry-link::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, var(--blue-glow) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s; }
-.registry-link:hover::before { opacity: 1; }
-.registry-link:hover { border-color: var(--blue); color: var(--text); box-shadow: 0 0 40px var(--blue-glow); }
-.registry-link:hover .registry-link__title { color: var(--blue); }
-.registry-link__label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.5rem; position: relative; }
-.registry-link__title { font-size: 1.25rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); transition: color 0.2s; position: relative; }
-.registry-link__desc { font-size: 0.8125rem; color: var(--text-dim); margin-top: 0.5rem; position: relative; }
-.footer { padding: 2rem 0; border-top: 1px solid var(--border); margin-top: 2rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.footer__text { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--text-muted); }
-.footer__links { display: flex; gap: 1.5rem; }
-.footer__link { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-.footer__link:hover { color: var(--text); }
-@media (max-width: 680px) {
-  .hero { padding: 3rem 0 2.5rem; }
-  .stats { flex-direction: column; }
-  .stat { border-right: none; border-bottom: 1px solid var(--border); }
-  .stat:last-child { border-bottom: none; }
-  .engagements, .focus-grid { grid-template-columns: 1fr; }
+h1 {
+  font-size: clamp(2.5rem, 8vw, 4rem); font-weight: 800;
+  letter-spacing: -0.04em; line-height: 1;
+  background: linear-gradient(135deg, var(--text) 0%, #7a98c0 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  margin-bottom: 1rem;
 }
+.sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem; color: var(--text-muted); margin-bottom: 2.5rem; line-height: 1.8;
+}
+.sub span { color: var(--text-dim); }
+.divider {
+  width: 3rem; height: 1px; background: var(--border);
+  margin: 0 auto 2.5rem;
+}
+.links { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+.link {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.08em;
+  color: var(--text-muted); text-decoration: none; transition: color 0.2s;
+}
+.link:hover { color: var(--blue); }
+.registry-btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: transparent; border: 1px solid var(--border);
+  border-radius: 0.375rem; color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.05em;
+  text-decoration: none; transition: all 0.2s;
+}
+.registry-btn:hover { border-color: var(--blue); color: var(--blue); background: var(--blue-glow); }
+.registry-btn svg { width: 12px; height: 12px; fill: currentColor; }
 </style>
 </head>
 <body>
-<div class="container">
-
-  <section class="hero">
-    <div class="hero__eyebrow">Ottawa &middot; Toronto &middot; LAX/YOW</div>
-    <h1 class="hero__title">
-      <span class="hero__title--name">JY Martineau</span>
-      <span class="hero__title--role">Fractional <span>CTO</span></span>
-    </h1>
-    <p class="hero__desc">
-      30 years shipping product. Founded Cactus Commerce, scaled it to 300 people, exited in 2010.
-      Nine years at Microsoft. Now operating at the intersection of fintech, blockchain,
-      and AI &mdash; as a fractional CTO across multiple high-stakes platforms.
-    </p>
-    <div class="hero__actions">
-      <a href="https://jymartineau.github.io/tech-registry/" class="btn btn--primary">
-        <svg viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8z"/></svg>
-        Tech Registry
-      </a>
-      <a href="https://www.linkedin.com/in/jymartineau/" class="btn btn--teal" target="_blank" rel="noopener">
-        <svg viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
-        LinkedIn
-      </a>
-      <a href="https://github.com/jymartineau" class="btn btn--ghost" target="_blank" rel="noopener">
-        <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-        GitHub
-      </a>
-    </div>
-  </section>
-
-  <div class="stats">
-    <div class="stat"><div class="stat__number">30+</div><div class="stat__label">Years Experience</div></div>
-    <div class="stat"><div class="stat__number">300</div><div class="stat__label">Team at Peak</div></div>
-    <div class="stat"><div class="stat__number">3</div><div class="stat__label">Active Engagements</div></div>
-    <div class="stat"><div class="stat__number">9</div><div class="stat__label">Years at Microsoft</div></div>
-    <div class="stat"><div class="stat__number">3</div><div class="stat__label">Patents &amp; Standards</div></div>
-    <div class="stat"><div class="stat__number">WIPO</div><div class="stat__label">AI &amp; IP Presenter</div></div>
+<div class="wrap">
+  <div class="eyebrow">Ottawa &middot; Toronto</div>
+  <h1>JY Martineau</h1>
+  <p class="sub">
+    <span>Fractional CTO</span><br>
+    Fintech &middot; Blockchain &middot; AI &middot; SaaS<br>
+    miner media co
+  </p>
+  <div class="divider"></div>
+  <div class="links">
+    <a href="https://jymartineau.github.io/tech-registry/" class="registry-btn">
+      <svg viewBox="0 0 16 16"><path d="M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8z"/></svg>
+      Tech Registry
+    </a>
+    <a href="https://www.linkedin.com/in/jymartineau/" class="link" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="https://github.com/jymartineau" class="link" target="_blank" rel="noopener">GitHub</a>
+    <a href="https://twitter.com/jymartineau" class="link" target="_blank" rel="noopener">X</a>
   </div>
-
-  <section class="section">
-    <div class="section__label">Current Work</div>
-    <h2 class="section__title">Active Engagements</h2>
-    <p class="section__desc">Operating across regulated fintech, industrial analytics, and blockchain-native sports platforms.</p>
-    <div class="engagements">
-      <div class="engagement">
-        <div class="engagement__bar" style="background:linear-gradient(90deg,transparent,var(--blue),transparent);"></div>
-        <span class="engagement__tag" style="color:var(--blue);border-color:var(--blue);background:#4f8ef712;">Fintech &middot; Blockchain</span>
-        <div class="engagement__name">Tetra Trust</div>
-        <div class="engagement__role">Developer Division Lead</div>
-        <div class="engagement__desc">Regulated stablecoin platform. Leading the Developer Division building Unity &mdash; a custody, compliance, and token management platform for institutional clients. Smart contracts, Fireblocks integration, Go microservices.</div>
-      </div>
-      <div class="engagement">
-        <div class="engagement__bar" style="background:linear-gradient(90deg,transparent,var(--teal),transparent);"></div>
-        <span class="engagement__tag" style="color:var(--teal);border-color:var(--teal);background:#20c99712;">Industrial &middot; AI Analytics</span>
-        <div class="engagement__name">Transpara / Phoenix AX</div>
-        <div class="engagement__role">Applications Team &mdash; AI Systems</div>
-        <div class="engagement__desc">Real-time operational intelligence for Fortune 500 clients. Massive time series data at industrial scale. AI-based systems, KPI dashboards, and predictive analytics across energy, manufacturing, and mining.</div>
-      </div>
-      <div class="engagement">
-        <div class="engagement__bar" style="background:linear-gradient(90deg,transparent,var(--purple),transparent);"></div>
-        <span class="engagement__tag" style="color:var(--purple);border-color:var(--purple);background:#b07ef812;">Sports Tech &middot; Blockchain</span>
-        <div class="engagement__name">SimWin Sports</div>
-        <div class="engagement__role">EVP of Technology</div>
-        <div class="engagement__desc">Blockchain-native simulated sports platform. Token economy design, ICP infrastructure, football simulation engine, and fan engagement systems for a next-generation sports product.</div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section__label">How I Work</div>
-    <h2 class="section__title">CTO Operating Model</h2>
-    <p class="section__desc">Fractional doesn&rsquo;t mean part-time thinking. It means focused leverage &mdash; technical leadership where it creates the most value.</p>
-    <div class="focus-grid">
-      <div class="focus"><div class="focus__title">Architecture &amp; Systems Design</div><div class="focus__text">Platform architecture, API design, microservices, event-driven systems. Building for scale from the first commit, not as an afterthought.</div></div>
-      <div class="focus"><div class="focus__title">Regulated Environments</div><div class="focus__text">Fintech, blockchain custody, compliance-grade systems. Presented to WIPO on AI and intellectual property. Standards contributions: cXML, SAP R3, EDI.</div></div>
-      <div class="focus"><div class="focus__title">Team Building &amp; Velocity</div><div class="focus__text">Hiring, structuring, and shipping with small high-output teams. Former Microsoft PM and SDE &mdash; culture of intellectual honesty and yield-to-superior-argument.</div></div>
-      <div class="focus"><div class="focus__title">AI-Native Development</div><div class="focus__text">Building with Claude Code, agentic workflows, and MCP tooling. Not just using AI &mdash; designing systems that are AI-ready from the architecture up.</div></div>
-      <div class="focus"><div class="focus__title">Blockchain &amp; Token Systems</div><div class="focus__text">Smart contracts, ERC standards, custody platforms, token economy design. Deep hands-on work across Ethereum, ICP, and regulated stablecoin infrastructure.</div></div>
-      <div class="focus"><div class="focus__title">Product Founder Instinct</div><div class="focus__text">Founded Cactus Commerce at 21, grew to 300 people, exited 2010. Clients included GameStop, Sam&rsquo;s Club, PowerBar. Microsoft Commerce Server partnership 2007.</div></div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="section__label">Technical Depth</div>
-    <h2 class="section__title">Current Stack</h2>
-    <p class="section__desc">The tools and technologies across active engagements &mdash; not a r&eacute;sum&eacute; list, an active toolchain.</p>
-    <div class="tags">
-      <span class="tag">Go</span><span class="tag">Next.js</span><span class="tag">TypeScript</span>
-      <span class="tag">React</span><span class="tag">Supabase</span><span class="tag">PostgreSQL</span>
-      <span class="tag">Solidity</span><span class="tag">ERC-20 / ERC-721</span><span class="tag">Fireblocks</span>
-      <span class="tag">ICP / Canisters</span><span class="tag">Ethereum</span><span class="tag">AWS</span>
-      <span class="tag">Vercel</span><span class="tag">Docker / K8s</span><span class="tag">MobX</span>
-      <span class="tag">Playwright</span><span class="tag">n8n</span><span class="tag">Claude / MCP</span>
-      <span class="tag">TimescaleDB</span><span class="tag">Kafka / NATS</span><span class="tag">Temporal</span>
-      <span class="tag">GitHub Actions</span>
-    </div>
-  </section>
-
-  <a href="https://jymartineau.github.io/tech-registry/" class="registry-link">
-    <div class="registry-link__label">Knowledge Base</div>
-    <div class="registry-link__title">Tech Registry &rarr;</div>
-    <div class="registry-link__desc">A curated personal registry of tools, platforms, and architecture patterns &mdash; with opinionated notes on when and when not to use them. 30+ tool entries. 13 pattern docs. Built to replace scattered Evernote notes.</div>
-  </a>
-
-  <footer class="footer">
-    <span class="footer__text">JY Martineau &middot; miner media co &middot; Ottawa / Toronto</span>
-    <div class="footer__links">
-      <a href="https://jymartineau.github.io/tech-registry/" class="footer__link">Tech Registry</a>
-      <a href="https://github.com/jymartineau" class="footer__link" target="_blank" rel="noopener">GitHub</a>
-      <a href="https://www.linkedin.com/in/jymartineau/" class="footer__link" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://twitter.com/jymartineau" class="footer__link" target="_blank" rel="noopener">X / Twitter</a>
-    </div>
-  </footer>
-
 </div>
 </body>
 </html>
